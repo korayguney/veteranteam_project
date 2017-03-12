@@ -1,22 +1,26 @@
-var __ = erste.locale.__;
+import ShowsView from './shows/shows-view';
+import AboutView from './about/about-view';
+import CameraView from './camera/camera-view';
+import MapView from './map/map-view';
+import SingupView from './signup/signup-view';
+import SigninView from './signin/signin-view';
+import ForgetPasswView from './forgetpassw/forgetpassw-view';
+import SingupOKView from './signup/signup-OK-view';
+import SideBar from './sidebar/sidebar';
 
-var ShowsView = require('./shows/shows-view');
-var AboutView = require('./about/about-view');
-var Sidebar = require('./sidebar/sidebar');
-var SingupView = require('./signup/signup-view');
-var SigninView = require('./signin/signin-view');
-var ForgetPasswView = require('./forgetpassw/forgetpassw-view');
-var SingupOKView = require('./signup/signup-OK-view');
+import { TabView, __ } from 'erste';
 
-
-class MainView extends erste.TabBar {
+export default class MainView extends TabView {
     constructor(vm) {
         super();
 
         this.showsView = new ShowsView();
         this.signinView = new SigninView();
+        this.cameraView = new CameraView();
+        this.mapView = new MapView();
+       
 
-        this.views = [this.signinView, this.showsView];
+        this.views = [this.signinView, this.showsView, this.cameraView, this.mapView];
 
         this.showsView.navBar.menuButtonHandler = () => vm.toggleSidebar();
 
@@ -38,11 +42,16 @@ class MainView extends erste.TabBar {
 
     template_items() {
         return `
-<tab-item class="active" data-view="about">${__('About')}</tab-item><tab-item data-view="shows">${__('Shows')}</tab-item>
+<tab-item class="active" data-view="about">${__('About')}</tab-item><tab-item data-view="shows">${__('Shows')}</tab-item><tab-item data-view="camera">${__('Camera')}</tab-item><tab-item data-view="map">${__('Map')}</tab-item>
 `;
     };
 
+	 activateItem(index) {
+        super.activateItem(index);
+
+        var activeView = this.views[this.activeItemIndex];
+        this.hasSidebar = activeView != this.mapView;
+    }
+	
 }
 
-
-module.exports = MainView;
