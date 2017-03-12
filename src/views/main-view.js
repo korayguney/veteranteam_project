@@ -1,36 +1,48 @@
-import ShowsView from './shows/shows-view';
-import AboutView from './about/about-view';
-import CameraView from './camera/camera-view';
-import MapView from './map/map-view';
+var __ = erste.locale.__;
 
-import { TabView, __ } from 'erste';
+var ShowsView = require('./shows/shows-view');
+var AboutView = require('./about/about-view');
+var Sidebar = require('./sidebar/sidebar');
+var SingupView = require('./signup/signup-view');
+var SigninView = require('./signin/signin-view');
+var ForgetPasswView = require('./forgetpassw/forgetpassw-view');
+var SingupOKView = require('./signup/signup-OK-view');
 
-export default class MainView extends TabView {
+
+class MainView extends erste.TabBar {
     constructor(vm) {
         super();
 
         this.showsView = new ShowsView();
-        this.aboutView = new AboutView();
-        this.cameraView = new CameraView();
-        this.mapView = new MapView();
+        this.signinView = new SigninView();
 
-        this.views = [this.aboutView, this.showsView, this.cameraView, this.mapView];
+        this.views = [this.signinView, this.showsView];
 
-        this.showsView.navBar.onMenuButtonTap = () => vm.toggleSidebar();
+        this.showsView.navBar.menuButtonHandler = () => vm.toggleSidebar();
 
-        this.hasSidebar = false;
+        this.hasSidebar = true;
+
+        this.sidebar = new Sidebar();
+        this.sidebar.vm = vm;
+
+        this.sidebar.on('switchView', e => this.activateItemByName(e.view));
+
+        this.sidebar.render(document.body);
     }
+
+    onAfterRender() {
+        super.onAfterRender();
+
+        this.activateItemByName('about');
+    };
 
     template_items() {
         return `
-<tab-item class="active" data-view="about">${__('About')}</tab-item><tab-item data-view="shows">${__('Shows')}</tab-item><tab-item data-view="camera">${__('Camera')}</tab-item><tab-item data-view="map">${__('Map')}</tab-item>
+<tab-item class="active" data-view="about">${__('About')}</tab-item><tab-item data-view="shows">${__('Shows')}</tab-item>
 `;
     };
 
-    activateItem(index) {
-        super.activateItem(index);
-
-        var activeView = this.views[this.activeItemIndex];
-        this.hasSidebar = activeView != this.mapView;
-    }
 }
+
+
+module.exports = MainView;
