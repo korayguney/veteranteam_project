@@ -1,0 +1,23 @@
+.about-view {
+    overflow: scroll;
+    bottom: 120px;
+    text-align: center;
+    padding-top: 160px;
+}
+
+.about-view h1 {
+    font-size: 120px;
+    font-weight: 100;
+    line-height: 130px;
+    padding-bottom: 40px;
+}
+
+img.logo {
+     padding-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    width: 300px}
+
+
