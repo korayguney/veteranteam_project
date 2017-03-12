@@ -1,43 +1,36 @@
-var __ = erste.locale.__;
+import ShowsView from './shows/shows-view';
+import AboutView from './about/about-view';
+import CameraView from './camera/camera-view';
+import MapView from './map/map-view';
 
-var ShowsView = require('./shows/shows-view');
-var AboutView = require('./about/about-view');
-var Sidebar = require('./sidebar/sidebar');
+import { TabView, __ } from 'erste';
 
-class MainView extends erste.TabBar {
+export default class MainView extends TabView {
     constructor(vm) {
         super();
 
         this.showsView = new ShowsView();
         this.aboutView = new AboutView();
+        this.cameraView = new CameraView();
+        this.mapView = new MapView();
 
-        this.views = [this.aboutView, this.showsView];
+        this.views = [this.aboutView, this.showsView, this.cameraView, this.mapView];
 
-        this.showsView.navBar.menuButtonHandler = () => vm.toggleSidebar();
+        this.showsView.navBar.onMenuButtonTap = () => vm.toggleSidebar();
 
-        this.hasSidebar = true;
-
-        this.sidebar = new Sidebar();
-        this.sidebar.vm = vm;
-
-        this.sidebar.on('switchView', e => this.activateItemByName(e.view));
-
-        this.sidebar.render(document.body);
+        this.hasSidebar = false;
     }
-
-    onAfterRender() {
-        super.onAfterRender();
-
-        this.activateItemByName('shows');
-    };
 
     template_items() {
         return `
-<tab-item class="active" data-view="about">${__('About')}</tab-item><tab-item data-view="shows">${__('Shows')}</tab-item>
+<tab-item class="active" data-view="about">${__('About')}</tab-item><tab-item data-view="shows">${__('Shows')}</tab-item><tab-item data-view="camera">${__('Camera')}</tab-item><tab-item data-view="map">${__('Map')}</tab-item>
 `;
     };
 
+    activateItem(index) {
+        super.activateItem(index);
+
+        var activeView = this.views[this.activeItemIndex];
+        this.hasSidebar = activeView != this.mapView;
+    }
 }
-
-
-module.exports = MainView;

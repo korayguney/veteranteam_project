@@ -1,4 +1,6 @@
-erste.locale.setDictionary('tr', {
+import {locale} from 'erste';
+
+locale.setDictionary('tr', {
     '__name': 'Türkçe',
     'About': 'Hakkında',
     'Shows': 'Diziler',
@@ -7,7 +9,10 @@ erste.locale.setDictionary('tr', {
     'End of List': 'Başka dizi kalmadı :(',
     'Top TV Show Posters': 'En iyi dizi posterleri',
     'An erste.js mobile app demo': 'Bir erste.js mobil uygulama demosu',
-    'Top Shows': 'En İyi Diziler'
+    'Top Shows': 'En İyi Diziler',
+    'Camera': 'Kamera',
+    'Take a picture': 'Bir resim çek',
+    'Map': 'Harita'
 });
 
-erste.locale.setLanguage('en');
+export default lang => locale.setLanguage(lang);
