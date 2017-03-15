@@ -1,5 +1,5 @@
 import ListView from './list-view';
-import {View, ViewManager, NavBar, __} from 'erste';
+import { View, ViewManager, NavBar, __ } from 'erste';
 
 export default class ShowsView extends View {
     constructor() {

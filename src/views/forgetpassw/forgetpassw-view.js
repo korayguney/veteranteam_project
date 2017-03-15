@@ -1,19 +1,19 @@
-var __ = erste.locale.__;
+import { View, __ } from 'erste';
 
-class AboutView extends erste.View {
-    constructor() {
-        super();
+class Forgetpassw extends View {
+	constructor() {
+		super();
 
-        this.className = 'about-view';
-    }
+		this.className = 'forgetpassw-view';
+	}
 
-    onActivation() {
-        if (cfg.PLATFORM == 'device')
-            StatusBar.styleDefault();
-    }
+	onActivation() {
+		if (cfg.PLATFORM == 'device')
+			StatusBar.styleDefault();
+	}
 
-    template_content() {
-        return `
+	template() {
+		return `
         <div><br />
 			<img src="static/img/logo.png" class="logo"><br/>
 		</div>
@@ -32,7 +32,7 @@ class AboutView extends erste.View {
 			<a href="#">back</a>
 		</div>
 `;
-    }
+	}
 }
 
-module.exports = AboutView;
+module.exports = ForgetpasswView;
