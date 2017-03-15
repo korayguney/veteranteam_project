@@ -58,6 +58,14 @@ button:hover {
     background-color: #f44336;
 }
 
+/* Extra style for the cancel button (red) */
+.forget {
+    width: auto;
+    padding: 10px 18px;
+    background-color:cornflowerblue;
+    float: right;
+}
+
 /* Center the avatar image inside this container */
 .imgcontainer {
     text-align: center;

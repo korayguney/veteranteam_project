@@ -1,6 +1,6 @@
-var __ = erste.locale.__;
+import { View, __ } from 'erste';
 
-class SigninView extends erste.View {
+class SigninView extends View {
     constructor() {
         super();
 
@@ -16,15 +16,21 @@ class SigninView extends erste.View {
         this.vm.pull(new SignupView(), true);
     };
 
+    forgetButtonTap(e) {
+        this.vm.pull(new ForgetpasswView(), true);
+    };
+
     get events() {
         return {
             'tap': {
-                '.login': this.singUpButtonTap
+                '.login': this.singUpButtonTap,
+                '.forget': this.forgetButtonTap,
+
             }
         }
     }
 
-    template_content() {
+    template() {
         return `
         <form >
             <div class="imgcontainer">
@@ -38,13 +44,13 @@ class SigninView extends erste.View {
                 <label><b>Password</b></label>
                 <input type="password" placeholder="veteran password" name="psw" required>
 
-                <button type="submit" class="login">Login</button>
+                <button class="login">Login</button>
                 <input type="checkbox" checked="checked"> Remember me
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
+                <button class="forget">Forgot password?</button>
             </div>
         </form>
 `;

@@ -1,6 +1,6 @@
-var __ = erste.locale.__;
+import { View, __ } from 'erste';
 
-class SignupView extends erste.View {
+class SignupView extends View {
     constructor() {
         super();
 
@@ -12,7 +12,7 @@ class SignupView extends erste.View {
             StatusBar.styleDefault();
     }
 
-    template_content() {
+    template() {
         return `
             <div><br />
                  <img src="static/img/logo.png" class="logo"><br />
