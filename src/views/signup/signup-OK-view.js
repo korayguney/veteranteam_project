@@ -1,10 +1,11 @@
-var __ = erste.locale.__;
+import { View, __ } from 'erste';
+import SignupView from '../signup/signup-view';
 
-class SignupOKView extends erste.View {
-    constructor() {
+class SignupOKView extends View {
+    constructor(vm) {
         super();
-
         this.className = 'signup-OK-view';
+    
     }
 
     onActivation() {
@@ -12,7 +13,7 @@ class SignupOKView extends erste.View {
             StatusBar.styleDefault();
     }
 
-    template_content() {
+    template() {
         return `
         <div align="center"><br/>
             <img src="static/img/logo-2.png" class="logo2" ><br />
