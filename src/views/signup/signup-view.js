@@ -1,12 +1,11 @@
 import { View, __ } from 'erste';
 import SigninView from '../signin/signin-view';
 import SignupOKView from '../signup/signup-OK-view';
+import MainView from '../main-view';
 
 class SignupView extends View {
-    constructor(vm) {
-        super();
-        this.className = 'signup-view';
-        
+    constructor() {
+        super();        
     }
 
     onActivation() {
@@ -15,7 +14,11 @@ class SignupView extends View {
     }
 
     backButtonTap(e) {
-        this.vm.pull(new SigninView(), true);
+        var mainView = new MainView();
+        mainView.vm = this.vm;
+        this.vm.pull(mainView, true);
+
+       // this.vm.pull(new SigninView(), true);
     };
 
      signUpButtonTap(e) {
@@ -34,7 +37,7 @@ class SignupView extends View {
 
     template() {
         return `
-        <div>
+       <div class="signup-view">
             <div><br />
                  <img src="static/img/logo.png" class="logo"><br />
             </div>

@@ -5,7 +5,7 @@ import ForgetpasswView from '../forgetpassw/forgetpassw-view';
 class SigninView extends View {
     constructor() {
         super();
-        this.className = 'signin-view';
+        // this.className = 'signin-view';
     }
 
     onActivation() {
@@ -14,11 +14,17 @@ class SigninView extends View {
     }
 
     singUpButtonTap(e) {
-        this.vm.pull(new SignupView(), true);
+        var signupView = new SignupView();
+        signupView.vm = this.vm;
+        this.vm.pull(signupView, true);
     };
 
     forgetButtonTap(e) {
-        this.vm.pull(new ForgetpasswView(), true);
+        var forgetpasswView = new ForgetpasswView();
+        forgetpasswView.vm = this.vm;
+        this.vm.pull(forgetpasswView, true);
+
+       // this.vm.pull(new ForgetpasswView(), true);
     };
 
     get events() {
@@ -32,7 +38,7 @@ class SigninView extends View {
 
     template() {
         return `
-    <div>
+    <div class="signup-view">
         <form >
             <div class="imgcontainer">
                 <img src="static/img/logo.png" alt="Avatar" class="logo">

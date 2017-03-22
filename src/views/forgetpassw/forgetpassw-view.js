@@ -1,5 +1,7 @@
 import { View, __ } from 'erste';
 import SigninView from '../signin/signin-view';
+import ForgetPasswOkView from '../forgetpassw/forgetpassw-OK-view';
+import MainView from '../main-view';
 
 class ForgetpasswView extends View {
 	constructor() {
@@ -14,10 +16,15 @@ class ForgetpasswView extends View {
 	}
 
   backButtonTap(e) {
-        this.vm.pull(new SigninView(), true);
+       var mainView = new MainView();
+        mainView.vm = this.vm;
+        this.vm.pull(mainView, true);
     };
 
    sendPasswTap(e) {
+	    var forgetpasswView = new ForgetPasswOkView();
+        forgetpasswView.vm = this.vm;
+        this.vm.pull(forgetpasswView, true);
         
     };
 

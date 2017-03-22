@@ -6,3 +6,11 @@ img.logo2 {
     margin-right: auto;
     height: 420px;
     width: 500px}
+
+.signin-view {
+    overflow: scroll;
+}
+
+.main-view {
+    overflow: scroll;
+}

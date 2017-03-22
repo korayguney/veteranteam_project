@@ -43,4 +43,14 @@ button.back {
     font-family: verdana;
 }
 
+.forgetpassw-view {
+    overflow: scroll;
+}
 
+.signin-view {
+    overflow: scroll;
+}
+
+.main-view {
+    overflow: scroll;
+}

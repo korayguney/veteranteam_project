@@ -120,6 +120,9 @@ h4 {
     font-size: 30px;
     color: mediumvioletred;
 }
+.signup-view {
+    overflow: scroll;
+}
 
 #remember { 
     display: inline-block;
