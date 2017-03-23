@@ -1,10 +1,13 @@
 import { View, __ } from 'erste';
+import SigninView from '../signin/signin-view';
+import ForgetPasswOkView from '../forgetpassw/forgetpassw-OK-view';
+import MainView from '../main-view';
 
-class Forgetpassw extends View {
+class ForgetpasswView extends View {
 	constructor() {
 		super();
-
 		this.className = 'forgetpassw-view';
+		
 	}
 
 	onActivation() {
@@ -12,25 +15,52 @@ class Forgetpassw extends View {
 			StatusBar.styleDefault();
 	}
 
+  backButtonTap(e) {
+       var mainView = new MainView();
+        mainView.vm = this.vm;
+        this.vm.pull(mainView, true);
+    };
+
+   sendPasswTap(e) {
+	    var forgetpasswView = new ForgetPasswOkView();
+        forgetpasswView.vm = this.vm;
+        this.vm.pull(forgetpasswView, true);
+        
+    };
+
+    get events() {
+        return {
+            'tap': {
+                '.sendPassw': this.sendPasswTap,
+                '.back': this.backButtonTap,
+            }
+        }
+    }
+
+
+
 	template() {
 		return `
+	<div>
         <div><br />
 			<img src="static/img/logo.png" class="logo"><br/>
 		</div>
 		<div align="center">
 			<br /><br />
 			<div>
-				<input type="text" id="username" name="username" placeholder="veteran username" />
+				<input type="text" id="text" name="username" placeholder="veteran username" />
 			</div><br>
 			<div>
-				<input type="email" id="mail" name="mail" placeholder="veteran email" />
+				<input type="email" id="text" name="mail" placeholder="veteran email" />
 			</div><br>
-             <button type="submit">send my password</button>
+             <button type="submit" class="sendPassw">send my password</button>
 		</div>
-		<br/><br/><br/><br/>
+		<br/><br/>
 		<div align="center">
-			<a href="#">back</a>
-		</div>
+                <br/>
+                <button class="back">back</button>
+            </div>
+	</div>
 `;
 	}
 }

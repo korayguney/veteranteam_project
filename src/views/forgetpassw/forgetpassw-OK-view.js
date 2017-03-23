@@ -1,12 +1,10 @@
 import { View, __ } from 'erste';
-import SignupView from '../signup/signup-view';
+import SigninView from '../signin/signin-view';
 import MainView from '../main-view';
 
-class SignupOKView extends View {
-    constructor(vm) {
-        super();
-        this.className = 'signup-OK-view';
-    
+class ForgetPasswOkView extends View {
+    constructor() {
+        super();        
     }
 
     onActivation() {
@@ -30,15 +28,16 @@ class SignupOKView extends View {
         }
     }
 
+
     template() {
         return `
-     <div>
+       <div>
         <div align="center"><br/>
             <img src="static/img/logo-2.png" class="logo2" ><br />
         </div>
         <div align="center">
-            <h2><b>Welcome Veteran!</b></h2>
-            <h3><b>your rank : <mark>newbie </mark></b></h3><br />
+            <h2><b>Password sended!</b></h2>
+            <h3><b>Please control your mail inbox</b></h3>
         </div>
         <div align="center">
             <img src="static/img/logo-OK.png" class="logo" ><br />
@@ -50,4 +49,4 @@ class SignupOKView extends View {
     }
 }
 
-module.exports = SignupOKView;
+module.exports = ForgetPasswOkView;

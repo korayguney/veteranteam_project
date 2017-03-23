@@ -1,10 +1,11 @@
 import { View, __ } from 'erste';
+import SigninView from '../signin/signin-view';
+import SignupOKView from '../signup/signup-OK-view';
+import MainView from '../main-view';
 
 class SignupView extends View {
     constructor() {
-        super();
-
-        this.className = 'signup-view';
+        super();        
     }
 
     onActivation() {
@@ -12,8 +13,31 @@ class SignupView extends View {
             StatusBar.styleDefault();
     }
 
+    backButtonTap(e) {
+        var mainView = new MainView();
+        mainView.vm = this.vm;
+        this.vm.pull(mainView, true);
+
+       // this.vm.pull(new SigninView(), true);
+    };
+
+     signUpButtonTap(e) {
+        this.vm.pull(new SignupOKView(), true);
+    };
+
+    get events() {
+        return {
+            'tap': {
+                '.signup': this.signUpButtonTap,
+                '.back': this.backButtonTap,
+            }
+        }
+    }
+
+
     template() {
         return `
+       <div class="signup-view">
             <div><br />
                  <img src="static/img/logo.png" class="logo"><br />
             </div>
@@ -21,27 +45,19 @@ class SignupView extends View {
 
                 <h4><b>One step to be a real Veteran! <br/> Please sign up below!</b></h4><br />
 
-                    <input type="text" id="fullname" name="fullname" placeholder="full name" /><br /><br />
-                    <input type="text" id="username" name="username" placeholder="username" /><br /><br />
-                    <input type="email" id="mail" name="mail" placeholder="email" /><br /><br />
-                    <input type="password" id="password" name="password" placeholder="password" /><br /><br />
-                    <input type="password" id="username" name="username" placeholder="password again" /><br /><br />
+                    <input type="text" id="text" name="fullname" placeholder="full name" /><br /><br />
+                    <input type="text" id="text" name="username" placeholder="username" /><br /><br />
+                    <input type="email" id="text" name="mail" placeholder="email" /><br /><br />
+                    <input type="password" id="text" name="password" placeholder="password" /><br /><br />
+                    <input type="password" id="text" name="username" placeholder="password again" /><br /><br />
                     <div align="center" data-type="horizontal">
                     <button class="signup">sign up</button>
-            </div>
-                <h5><b>Or</b></h5>
-
-                <div align="center">
-
-                    <div>
-                        <button class="facebook">Sign in with Facebook</button>
-                    </div>
-                </div>
-            </div>
-            <div align="center" class="ui-content">
+           
+            <div align="center">
                 <br/>
-                <a href="#">back</a>
+                <button class="back">back</button>
             </div>
+        </div>
 `;
     }
 }
