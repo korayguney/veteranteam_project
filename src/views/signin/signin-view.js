@@ -1,6 +1,7 @@
 import { View, __ } from 'erste';
 import SignupView from '../signup/signup-view';
 import ForgetpasswView from '../forgetpassw/forgetpassw-view';
+import LoggedInView from '../loggedin/loggedin-view';
 
 class SigninView extends View {
     constructor() {
