@@ -1,7 +1,7 @@
 import {ViewManager} from 'erste';
 
 import Sidebar from './views/sidebar/sidebar';
-import MainView from './views/main-view';
+import SigninView from './views/signin/signin-view';
 import locale from './lib/locale';
 
 export default class Application {
@@ -14,8 +14,9 @@ export default class Application {
         sidebar.vm = vm;
         sidebar.on('switchView', e => mainView.activateItemByName(e.view));
         sidebar.render(document.body);
+        var signinView = new SigninView();
+        signinView.vm = vm;
 
-        var mainView = new MainView(vm);
-        vm.setCurrentView(mainView);
+        vm.setCurrentView(signinView);
     }
 }

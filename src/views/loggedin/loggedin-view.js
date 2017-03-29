@@ -5,15 +5,13 @@ import MainView from '../main-view';
 class LoggedInView extends View {
     constructor() {
         super();
-        this.vm = new ViewManager(this);
         this.navBar = new NavBar({
             title: __('Welcome to beveteran'),
             hasMenuButton: true,
             hasBackButton: true
         });
 
-        this.navBar.vm = this.vm;
-
+        this.hasSidebar = true;
     }
 
     onActivation() {
@@ -31,7 +29,6 @@ class LoggedInView extends View {
         var hinderView = new HinderView();
         hinderView.vm = this.vm;
         this.vm.pull(hinderView, true);
-
     };
 
     get events() {
@@ -46,21 +43,19 @@ class LoggedInView extends View {
 
     template() {
         return `
- <div>
-        <view class="navbar">
+<view>
     ${this.navBar}
-    </view>
-        <div class="logedin">
+    <div class="logedin">
         <div class="imgcontainer">
-                <img src="static/img/logo.png" alt="Avatar" class="logo">
+            <img src="static/img/logo.png" alt="Avatar" class="logo">
         </div>
         <div class="buttons">
             <button type="button" class="hider"> be a hider verteran</button>
             <button type="button" class="finder"> be a finder verteran</button>
-        </div>   
-
-</div>
         </div>
+
+    </div>
+</view>
 `;
     }
 }

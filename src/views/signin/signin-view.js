@@ -1,6 +1,7 @@
 import { View, __ } from 'erste';
 import SignupView from '../signup/signup-view';
 import ForgetpasswView from '../forgetpassw/forgetpassw-view';
+import LoggedInView from '../loggedin/loggedin-view';
 
 class SigninView extends View {
     constructor() {
@@ -29,9 +30,8 @@ class SigninView extends View {
 
     logInButtonTap(e) {
         var loggedin = new LoggedInView();
-        loggedin.vm = this.vm;
+        loggedin.navBar.vm = this.vm;
         this.vm.pull(loggedin, true);
-
     };
     get events() {
         return {
@@ -60,7 +60,7 @@ class SigninView extends View {
                 <br/> <br/>
                 <button class="login">Login</button>
                 <input type="checkbox" checked="checked"/> <font face="verdana" color="green">save username?</font>
-                
+
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
