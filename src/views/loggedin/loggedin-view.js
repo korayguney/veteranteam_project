@@ -29,7 +29,6 @@ class LoggedInView extends View {
         var hinderView = new HinderView();
         hinderView.vm = this.vm;
         this.vm.pull(hinderView, true);
-
     };
 
     get events() {
