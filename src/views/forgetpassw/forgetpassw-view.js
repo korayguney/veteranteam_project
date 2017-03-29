@@ -7,7 +7,6 @@ class ForgetpasswView extends View {
 	constructor() {
 		super();
 		this.className = 'forgetpassw-view';
-		
 	}
 
 	onActivation() {
@@ -15,27 +14,26 @@ class ForgetpasswView extends View {
 			StatusBar.styleDefault();
 	}
 
-  backButtonTap(e) {
-       var mainView = new MainView();
-        mainView.vm = this.vm;
-        this.vm.pull(mainView, true);
-    };
+	backButtonTap(e) {
+		var mainView = new MainView();
+		mainView.vm = this.vm;
+		this.vm.pull(mainView, true);
+	};
 
-   sendPasswTap(e) {
-	    var forgetpasswView = new ForgetPasswOkView();
-        forgetpasswView.vm = this.vm;
-        this.vm.pull(forgetpasswView, true);
-        
-    };
+	sendPasswTap(e) {
+		var forgetpasswView = new ForgetPasswOkView();
+		forgetpasswView.vm = this.vm;
+		this.vm.pull(forgetpasswView, true);
+	};
 
-    get events() {
-        return {
-            'tap': {
-                '.sendPassw': this.sendPasswTap,
-                '.back': this.backButtonTap,
-            }
-        }
-    }
+	get events() {
+		return {
+			'tap': {
+				'.sendPassw': this.sendPasswTap,
+				'.back': this.backButtonTap,
+			}
+		}
+	}
 
 
 

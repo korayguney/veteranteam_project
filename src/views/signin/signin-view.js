@@ -24,7 +24,7 @@ class SigninView extends View {
         forgetpasswView.vm = this.vm;
         this.vm.pull(forgetpasswView, true);
 
-       // this.vm.pull(new ForgetpasswView(), true);
+        // this.vm.pull(new ForgetpasswView(), true);
     };
 
     get events() {

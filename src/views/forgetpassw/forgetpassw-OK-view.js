@@ -4,7 +4,7 @@ import MainView from '../main-view';
 
 class ForgetPasswOkView extends View {
     constructor() {
-        super();        
+        super();
     }
 
     onActivation() {
@@ -17,13 +17,13 @@ class ForgetPasswOkView extends View {
         mainView.vm = this.vm;
         this.vm.pull(mainView, true);
 
-       // this.vm.pull(new SigninView(), true);
+        // this.vm.pull(new SigninView(), true);
     };
 
-   get events() {
+    get events() {
         return {
             'tap': {
-               '.button': this.backButtonTap,
+                '.button': this.backButtonTap,
             }
         }
     }
@@ -31,7 +31,7 @@ class ForgetPasswOkView extends View {
 
     template() {
         return `
-       <div>
+    <div>
         <div align="center"><br/>
             <img src="static/img/logo-2.png" class="logo2" ><br />
         </div>

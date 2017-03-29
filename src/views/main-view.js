@@ -7,7 +7,5 @@ export default class MainView extends Component {
         super();
         this.signinView = new SigninView();
         this.signinView.vm = vm;
-
-
     }
 }

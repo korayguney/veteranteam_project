@@ -44,8 +44,6 @@ input[type=checkbox]{
    height: 40px;
 }
 
-
-
 /* Set a style for all buttons */
 button {
     background-color: #4CAF50;
@@ -67,7 +65,6 @@ button.facebook {
     position:relative;
     left:20%;
 }
-
 
 /* Add a hover effect for buttons */
 button:hover {

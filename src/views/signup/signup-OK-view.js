@@ -6,7 +6,6 @@ class SignupOKView extends View {
     constructor(vm) {
         super();
         this.className = 'signup-OK-view';
-    
     }
 
     onActivation() {
@@ -19,13 +18,13 @@ class SignupOKView extends View {
         mainView.vm = this.vm;
         this.vm.pull(mainView, true);
 
-       // this.vm.pull(new SigninView(), true);
+        // this.vm.pull(new SigninView(), true);
     };
 
-   get events() {
+    get events() {
         return {
             'tap': {
-               '.button': this.backButtonTap,
+                '.button': this.backButtonTap,
             }
         }
     }

@@ -5,7 +5,7 @@ import MainView from '../main-view';
 
 class SignupView extends View {
     constructor() {
-        super();        
+        super();
     }
 
     onActivation() {
@@ -18,10 +18,10 @@ class SignupView extends View {
         mainView.vm = this.vm;
         this.vm.pull(mainView, true);
 
-       // this.vm.pull(new SigninView(), true);
+        // this.vm.pull(new SigninView(), true);
     };
 
-     signUpButtonTap(e) {
+    signUpButtonTap(e) {
         this.vm.pull(new SignupOKView(), true);
     };
 
@@ -44,7 +44,6 @@ class SignupView extends View {
             <div align="center">
 
                 <h4><b>One step to be a real Veteran! <br/> Please sign up below!</b></h4><br />
-
                     <input type="text" id="text" name="fullname" placeholder="full name" /><br /><br />
                     <input type="text" id="text" name="username" placeholder="username" /><br /><br />
                     <input type="email" id="text" name="mail" placeholder="email" /><br /><br />
