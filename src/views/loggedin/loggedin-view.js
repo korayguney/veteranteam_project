@@ -11,6 +11,7 @@ class LoggedInView extends View {
             hasBackButton: true
         });
 
+        this.hasSidebar = true;
     }
 
     onActivation() {
