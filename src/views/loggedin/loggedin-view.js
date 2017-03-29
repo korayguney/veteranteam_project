@@ -46,21 +46,19 @@ class LoggedInView extends View {
 
     template() {
         return `
- <div>
-        <view class="navbar">
+<view>
     ${this.navBar}
-    </view>
-        <div class="logedin">
+    <div class="logedin">
         <div class="imgcontainer">
-                <img src="static/img/logo.png" alt="Avatar" class="logo">
+            <img src="static/img/logo.png" alt="Avatar" class="logo">
         </div>
         <div class="buttons">
             <button type="button" class="hider"> be a hider verteran</button>
             <button type="button" class="finder"> be a finder verteran</button>
-        </div>   
-
-</div>
         </div>
+
+    </div>
+</view>
 `;
     }
 }
