@@ -27,11 +27,18 @@ class SigninView extends View {
        // this.vm.pull(new ForgetpasswView(), true);
     };
 
+    logInButtonTap(e) {
+        var loggedin = new LoggedInView();
+        loggedin.vm = this.vm;
+        this.vm.pull(loggedin, true);
+
+    };
     get events() {
         return {
             'tap': {
                 '.forget': this.forgetButtonTap,
                 '.signupbtn': this.singUpButtonTap,
+                '.login': this.logInButtonTap,
             }
         }
     }
