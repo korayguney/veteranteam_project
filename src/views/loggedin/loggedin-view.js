@@ -5,14 +5,11 @@ import MainView from '../main-view';
 class LoggedInView extends View {
     constructor() {
         super();
-        this.vm = new ViewManager(this);
         this.navBar = new NavBar({
             title: __('Welcome to beveteran'),
             hasMenuButton: true,
             hasBackButton: true
         });
-
-        this.navBar.vm = this.vm;
 
     }
 
