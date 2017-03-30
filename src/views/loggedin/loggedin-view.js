@@ -1,6 +1,6 @@
 import { View, __, Sidebar, ViewManager, NavBar } from 'erste';
 import MainView from '../main-view';
-
+import FinderView from '../finderview/finder-view';
 
 class LoggedInView extends View {
     constructor() {
