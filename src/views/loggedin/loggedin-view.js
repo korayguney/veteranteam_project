@@ -1,6 +1,6 @@
 import { View, __, Sidebar, ViewManager, NavBar } from 'erste';
 import MainView from '../main-view';
-
+import FinderView from '../finderview/finder-view';
 
 class LoggedInView extends View {
     constructor() {
@@ -12,11 +12,11 @@ class LoggedInView extends View {
         });
 
         this.hasSidebar = true;
+        this.supportsBackGesture = true;
     }
 
     onActivation() {
-        if (cfg.PLATFORM == 'device')
-            StatusBar.styleDefault();
+        this.navBar.vm = this.vm;
     }
 
     finderButtonTap(e) {

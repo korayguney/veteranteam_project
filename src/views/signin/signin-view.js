@@ -30,7 +30,7 @@ class SigninView extends View {
 
     logInButtonTap(e) {
         var loggedin = new LoggedInView();
-        loggedin.navBar.vm = this.vm;
+        loggedin.vm = this.vm;
         this.vm.pull(loggedin, true);
     };
     get events() {

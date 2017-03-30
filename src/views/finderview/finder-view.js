@@ -13,16 +13,12 @@ class FinderView extends View {
             hasBackButton: true
         });
         this.hasSidebar = true;
-
+        this.supportsBackGesture = true;
     }
 
     onActivation() {
-        if (cfg.PLATFORM == 'device')
-            StatusBar.styleDefault();
+        this.navBar.vm = this.vm;
     }
-
-
-
 
     template() {
         return `
