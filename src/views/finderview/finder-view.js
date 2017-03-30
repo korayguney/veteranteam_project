@@ -17,12 +17,8 @@ class FinderView extends View {
     }
 
     onActivation() {
-        if (cfg.PLATFORM == 'device')
-            StatusBar.styleDefault();
+        this.navBar.vm = this.vm;
     }
-
-
-
 
     template() {
         return `
