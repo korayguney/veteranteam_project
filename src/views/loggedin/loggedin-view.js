@@ -12,6 +12,7 @@ class LoggedInView extends View {
         });
 
         this.hasSidebar = true;
+        this.supportsBackGesture = true;
     }
 
     onActivation() {

@@ -13,7 +13,7 @@ class FinderView extends View {
             hasBackButton: true
         });
         this.hasSidebar = true;
-
+        this.supportsBackGesture = true;
     }
 
     onActivation() {
