@@ -7,6 +7,7 @@ import MapView from "../map/map-view";
 class FinderView extends View {
     constructor() {
         super();
+
         this.navBar = new NavBar({
             title: __('Welcome to beveteran'),
             hasMenuButton: true,
@@ -14,23 +15,27 @@ class FinderView extends View {
         });
         this.hasSidebar = true;
         this.supportsBackGesture = true;
+
+        this.mapview = new MapView;
+
     }
 
     onActivation() {
         this.navBar.vm = this.vm;
     }
-
     template() {
+
         return `
-<view>
-    ${this.navBar}
+<view>  
+        ${this.navBar}
+    
+    <h3 class="mapheader">Select your target<h3>        
     <div class="map">
-        <div class="imgcontainer">
-            <img src="static/img/logo.png" alt="Avatar" class="logo">
-        </div>
-<!-- map view will be here -->
-    </div>
+        ${this.mapview}
+    </div>   
 </view>
+
+
 `;
     }
 }
