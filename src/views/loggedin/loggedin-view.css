@@ -1,0 +1,27 @@
+.finder {
+    background-color: green;
+    color: white;
+    padding: 10%;
+    margin: 100px 0;
+    cursor: pointer;
+    width: 80%;
+    left: 10%;
+    font-family: verdana;
+    border-radius: 10%;
+}
+
+.hider {
+    background-color: green;
+    color: white;
+    padding: 10%;
+    margin: 100px 0;
+    cursor: pointer;
+    width: 80%;
+    left: 10%;
+    font-family: verdana;
+    border-radius: 10%;
+}
+
+.imgcontainer {
+    padding: 5%;
+}

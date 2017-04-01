@@ -1,5 +1,5 @@
-import {Sidebar, __} from 'erste';
-
+import { Sidebar, __ } from 'erste';
+import { SigninView } from "../signin/signin-view";
 export default class extends Sidebar {
     template_items() {
         return `
@@ -9,7 +9,7 @@ export default class extends Sidebar {
     </sidebar-label>
 </sidebar-item>
 <sidebar-item class="sidebar-item-about" data-view="about">
-    <i class="icon-about"></i>${__('About')}
+    <i class="icon-about"></i>${__('Exit')}
 </sidebar-item>
 `;
     };

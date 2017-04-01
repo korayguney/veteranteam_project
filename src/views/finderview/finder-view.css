@@ -1,0 +1,17 @@
+.map {
+    position: fixed;
+    height: 80%;
+    width: 95%;
+    left: 2.5%;
+    top: 20%;
+    bottom: 5%;
+    border: 5px solid;
+    border-color: green;
+}
+
+.mapheader {
+    position: fixed;
+    top: 15%;
+    left: 2.5%;
+    color: green;
+}

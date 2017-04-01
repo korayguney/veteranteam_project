@@ -4,7 +4,7 @@
             "env",
             {
                 "targets": {
-                    "ios": 10
+                    "android": 5
                 }
             }
         ]
